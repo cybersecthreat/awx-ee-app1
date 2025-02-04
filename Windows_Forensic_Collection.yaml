@@ -24,7 +24,7 @@
     - name: Copy files from network share to local directory
       community.windows.psexec:
         executable: cmd.exe
-        arguments: "/c robocopy \\\\[server1]\\[share]\\ C:\\temp mytest.bat /r:3 /w:5"
+        arguments: "/c robocopy \\\\win2012-test.soctest1.loc\\share\\ C:\\temp mytest.bat /r:3 /w:5"
         hostname: "{{ laps_hostname }}"
         connection_username: "{{ laps_username }}"
         connection_password: "{{ laps_password }}"
