@@ -26,7 +26,7 @@
         executable: cmd.exe
         arguments: "/c robocopy \\\\win2012-test.soctest1.loc\\share\\ C:\\temp mytest.bat /r:3 /w:5"
         hostname: "{{ laps_hostname }}"
-        connection_username: "{{ ad_kerberos_user }}"
+        connection_username: "{{ ad_kerberos_user }}@SOCTEST1.LOC"
         connection_password: "{{ ad_kerberos_password }}"
         encrypt: true
       register: robocopy_result
