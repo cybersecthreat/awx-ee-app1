@@ -21,6 +21,20 @@
         msg: "The LAPS password is: {{ laps_password }}"
       when: debug is defined and debug | bool
 
+    - name: Run 'whoami.exe' on the remote host
+      community.windows.psexec:
+        executable: whoami.exe
+        hostname: "{{ laps_hostname }}"
+        connection_username: "{{ laps_username }}"
+        connection_password: "{{ laps_password }}"
+        encrypt: true
+      register: psexec_result
+
+    - name: Display the output of the command
+      ansible.builtin.debug:
+        msg: "{{ psexec_result.stdout }}"
+      when: debug is defined and debug | bool        
+
     - name: Copy files from network share to local directory
       community.windows.psexec:
         executable: cmd.exe
