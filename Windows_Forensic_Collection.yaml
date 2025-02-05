@@ -40,8 +40,10 @@
         executable: cmd.exe
         arguments: "/c robocopy \\\\192.168.1.93\\share\\ C:\\temp mytest.bat /r:3 /w:5"
         hostname: "{{ laps_hostname }}"
-        connection_username: "SOCTEST1\\administrator"
-        connection_password: "{{ ad_kerberos_password }}"
+        connection_username: "{{ laps_username }}"
+        connection_password: "{{ laps_password }}"
+        process_username: "{{ ad_kerberos_user }}"
+        process_password: "{{ ad_kerberos_password }}"
         encrypt: true
       register: robocopy_result
 
