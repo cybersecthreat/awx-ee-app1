@@ -11,7 +11,7 @@
         command: kinit {{ ad_kerberos_user }}
         responses:
           (?i)password: "{{ ad_kerberos_password }}"
-      no_log: false
+      #no_log: false
 
     - name: Get the LAPS password using Kerberos auth
       ansible.builtin.set_fact:
