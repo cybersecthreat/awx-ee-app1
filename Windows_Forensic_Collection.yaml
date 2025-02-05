@@ -2,8 +2,8 @@
   hosts: localhost
   gather_facts: no
   vars:
-    laps_username: "[mylocaladmin]"
-    domain_name: "[win2012-test.soctest1.loc]"
+    laps_username: "mylocaladmin"
+    domain_name: "win2012-test.soctest1.loc"
   tasks:
     - name: Call kinit to retrieve Kerberos token
       ansible.builtin.expect:
