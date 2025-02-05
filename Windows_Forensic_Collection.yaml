@@ -21,6 +21,21 @@
         msg: "The LAPS password is: {{ laps_password }}"
       when: debug is defined and debug | bool
 
+    - name: Copy files from network share to local directory
+      community.windows.psexec:
+        executable: cmd.exe
+        arguments: "/c robocopy \\\\win2012-test.soctest1.loc\\share\\ C:\\temp mytest.bat /r:3 /w:5"
+        hostname: "{{ laps_hostname }}"
+        connection_username: "{{ ad_kerberos_user }}"
+        connection_password: "{{ ad_kerberos_password }}"
+        encrypt: true
+      register: robocopy_result
+
+    - name: Display output of robocopy
+      ansible.builtin.debug:
+        msg: "{{ robocopy_result.stdout }}"
+      when: debug is defined and debug | bool
+
     - name: Run 'whoami.exe' on the remote host
       community.windows.psexec:
         executable: whoami.exe
