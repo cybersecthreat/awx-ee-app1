@@ -1,4 +1,5 @@
-- name: Windows Forensic Collection (ansible-playbook Windows_Forensic_Collection.yaml --extra-vars "ad_kerberos_user=[administrator@SOCTEST1.LOC] ad_kerberos_password=[Password] laps_computer_name=[WIN-2016-M1] laps_hostname=[win-2016-m1.soctest1.loc] debug=true")
+# Usage: (ansible-playbook Windows_Forensic_Collection.yaml --extra-vars "ad_kerberos_user=[administrator@SOCTEST1.LOC] ad_kerberos_password=[Password] laps_computer_name=[WIN-2016-M1] laps_hostname=[win-2016-m1.soctest1.loc] debug=true")
+- name: Windows Forensic Collection
   hosts: localhost
   gather_facts: no
   vars:
